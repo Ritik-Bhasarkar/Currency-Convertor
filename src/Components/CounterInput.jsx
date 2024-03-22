@@ -58,7 +58,8 @@ export default function CounterInput({heading,currency,setCurrency,amount,onAmou
       </div> 
         <div className="input-section">
             <label htmlFor="number"></label>
-            <input id="number" type="number" placeholder='amount' value={amount} onChange={onAmountChange}></input>
+            <input id="number" type="number" placeholder='amount' value={amount} onChange={onAmountChange}></input>   
+             {/* input field leading with zero - end time error */}
         </div>
       </div>
         

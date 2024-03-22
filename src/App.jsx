@@ -45,7 +45,10 @@ function App() {
   //Rounding amounts upto 2 decimal points
 
   const roundOffbaseAmount = Math.round(baseAmount * 100)/100;
-  const roundOffExchangeAmount = Math.round(exchangeAmount * 100)/100
+  const roundOffExchangeAmount = Math.round(exchangeAmount * 100)/100;
+
+  console.log(roundOffExchangeAmount);
+  console.log(roundOffbaseAmount)
  
   
   useEffect(()=>{
@@ -68,7 +71,6 @@ function App() {
       setLoading(false);
     };
     fetchData();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   },[baseCurrency,currencies,amount])
 
 

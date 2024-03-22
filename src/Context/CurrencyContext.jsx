@@ -27,9 +27,7 @@ const CurrencyProvider = ({ children }) => {
     localStorage.setItem('currencies',value);
     setCurrencies(value);
   }
-
-
-
+  
   useEffect(()=>{
     const localBasedCurrency = localStorage.getItem("baseCurrency");
     const localExchangeCurrency = localStorage.getItem("currencies");
