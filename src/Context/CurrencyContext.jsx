@@ -7,7 +7,7 @@ export const CurrencyContext = createContext()
 
 const CurrencyProvider = ({ children }) => {
 
-  const [loading,setLoading] =useState(false);
+  const [loading,setLoading] =  useState(false);
   const [baseCurrency ,setBaseCurrency] = useState( localStorage.getItem('baseCurrency') ||'USD');  
   const [currencies,setCurrencies] = useState(localStorage.getItem('currencies') ||'INR');
   const [amount,setAmount] = useState(1);

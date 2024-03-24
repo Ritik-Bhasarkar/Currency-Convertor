@@ -4,7 +4,8 @@ import CounterInput from './Components/CounterInput'
 import axiosApi from './APIs/Axios';
 import { useContext, useEffect} from "react";
 import { CurrencyContext } from './Context/CurrencyContext';
-import { LuArrowDownUp } from "react-icons/lu";
+import { CgArrowsExchangeAltV } from "react-icons/cg";
+
 
 
 function App() {
@@ -36,7 +37,7 @@ function App() {
   
   if(amountChange){
     baseAmount = amount;
-    exchangeAmount = amount * exchangeRate;
+    exchangeAmount = amount * exchangeRate;     // 83.5864865558566
   }else{
     exchangeAmount = amount;
     baseAmount = amount / exchangeRate;
@@ -45,14 +46,16 @@ function App() {
   //Rounding amounts upto 2 decimal points
 
   const roundOffbaseAmount = Math.round(baseAmount * 100)/100;
-  const roundOffExchangeAmount = Math.round(exchangeAmount * 100)/100;
+  const roundOffExchangeAmount = Math.round(exchangeAmount * 100)/100;   //83.58
 
-  console.log(roundOffExchangeAmount);
-  console.log(roundOffbaseAmount)
+  // console.log(roundOffExchangeAmount);
+  // console.log(roundOffbaseAmount)
  
   
   useEffect(()=>{
+    
     const apikey = import.meta.env.VITE_API_KEY
+
     const fetchData = async()=>{
       setLoading(true);
       try{
@@ -94,8 +97,8 @@ function App() {
     <div className='app'>
       <div className="counter-container">
         <div className='container-header'>
-         <h1>Currency Counter</h1>
-         <span> Check live rates, set rate alerts, receive notifications and more</span>
+         <h1>Currency Convertor</h1>
+         <span> Check live rates, set rate alerts, receive <br></br> notifications and more</span>
         </div>
         
         <div className="counter-section">
@@ -107,7 +110,7 @@ function App() {
             onAmountChange = {handleBaseAmountChange}/>
 
             <span className='swap-arrows' onClick={handleSwap}>
-              <LuArrowDownUp className='arrow' />
+              <CgArrowsExchangeAltV className='arrow' />
             </span>
 
             <CounterInput 
@@ -120,7 +123,7 @@ function App() {
 
       <div className='footer'>
         <span>Indicative exchange Rate</span>
-        <p>1 {baseCurrency} = {exchangeRate} {currencies}</p>
+        <p>1 {baseCurrency} = {Math.round(exchangeRate *100)/100} {currencies}</p>
       </div>
     </div>
     </div>
