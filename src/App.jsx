@@ -1,14 +1,16 @@
-// import { useState } from 'react'
+
 import './App.css'
-import CounterInput from './Components/CounterInput'
+import { useContext, useEffect, useState} from "react";
 import axiosApi from './APIs/Axios';
-import { useContext, useEffect} from "react";
+import CounterInput from './Components/CounterInput'
 import { CurrencyContext } from './Context/CurrencyContext';
 import { CgArrowsExchangeAltV } from "react-icons/cg";
 
 
 
 function App() {
+
+  const [rotate,setRotate] = useState(false);
 
   const baseHeading = 'Amount';
   const convertedHeading = 'Converted Amount'
@@ -77,6 +79,9 @@ function App() {
   },[baseCurrency,currencies,amount])
 
 
+ 
+
+
   const handleBaseAmountChange=(e)=>{    
     setAmount(e.target.value);
     setAmountChange(true);
@@ -90,7 +95,12 @@ function App() {
 
   const handleSwap=()=>{
     setBaseCurrency(currencies);
-    setCurrencies(baseCurrency)
+    setCurrencies(baseCurrency);
+
+    //rotation
+
+    setRotate(!rotate);
+
   }
 
   return (
@@ -98,7 +108,7 @@ function App() {
       <div className="counter-container">
         <div className='container-header'>
          <h1>Currency Convertor</h1>
-         <span> Check live rates, set rate alerts, receive <br></br> notifications and more</span>
+         <span> Check live rates, set rate alerts, receive notifications and more</span>
         </div>
         
         <div className="counter-section">
@@ -110,7 +120,7 @@ function App() {
             onAmountChange = {handleBaseAmountChange}/>
 
             <span className='swap-arrows' onClick={handleSwap}>
-              <CgArrowsExchangeAltV className='arrow' />
+              <CgArrowsExchangeAltV className={`arrow ${rotate ? 'rotated':''}`} />
             </span>
 
             <CounterInput 

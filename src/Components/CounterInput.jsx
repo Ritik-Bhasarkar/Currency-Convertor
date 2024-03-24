@@ -5,6 +5,7 @@ import { IoIosArrowUp } from "react-icons/io";
 import {useState} from "react";
 
 
+
 export default function CounterInput({heading,currency,setCurrency,amount,onAmountChange}) {
 
   const [isOpen,setIsOpen] = useState(false);
@@ -28,20 +29,21 @@ export default function CounterInput({heading,currency,setCurrency,amount,onAmou
 
   return (
     <div className="counterInput-container">
+      <div className="counter-input-header">
         <span className="input-heading">{heading} </span>
+      </div>
         
-      < div className="counterInput-section">
-
+      <div className="counterInput-section">
           <div onClick={()=>setIsOpen((prev)=>!prev)} className="menu-container">
-              <div className="flag-img">
+              <div className="flag-img default">
                 <img src={`https://flagcdn.com/h40/us.png`} alt="flag"></img>
               </div>
-            <span className="menu-heading">{currency}</span>
+              <span className="menu-heading">{currency}</span>
               {
                 !isOpen ? (
-                  <IoIosArrowDown className="arrow" fill="grey"/>
+                  <IoIosArrowDown className="arrow"/>
                 ):(
-                  <IoIosArrowUp className="arrow" fill="grey" />
+                  <IoIosArrowUp className="arrow"/>
                 )
               }
           </div>     
@@ -51,15 +53,18 @@ export default function CounterInput({heading,currency,setCurrency,amount,onAmou
             <ul className="country-list"> 
               {currencyList.map((currency , index)=>(
               <li value={currency} key={index} onClick={()=>{setCurrency && setCurrency(currency.currencyCode); setIsOpen(false)} }>
-                <img className = 'country-flag' width='30px'
-                src={`https://flagcdn.com/h40/${currency.countryCode}.png`}/>
+                {/* <img className = 'country-flag' width='30px'
+                src={`https://flagcdn.com/h40/${currency.countryCode}.png`}/> */}
+                <div className="flag-img droplist">
+                  <img src={`https://flagcdn.com/h40/${currency.countryCode}.png`} alt="flag"></img>
+                </div>
                 <span>{currency.currencyCode}</span>
               </li>
               ))}
             </ul>
           )}   
       </div> 
-      
+
         <div className="input-section">
             <label htmlFor="number"></label>
             <input id="number" type="number" placeholder='amount' value={amount} onChange={onAmountChange}></input>   
