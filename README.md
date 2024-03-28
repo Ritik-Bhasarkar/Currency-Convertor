@@ -32,12 +32,16 @@ This project is a currency converter web application built with React, Vite, Con
    ```bash
    npm run dev
 
-## Project Demo Video
+## Project UI
+
+![Screenshot 2024-03-24 201131](https://github.com/Ritik-Bhasarkar/Currency-Convertor/assets/71097818/d81a265c-2f55-4203-ac9f-ba03ef71812c)
+
+![Screenshot 2024-03-24 201220](https://github.com/Ritik-Bhasarkar/Currency-Convertor/assets/71097818/616bed13-0f97-4913-8830-24f4b1fd72fa)
 
 
+![Screenshot 2024-03-24 200936](https://github.com/Ritik-Bhasarkar/Currency-Convertor/assets/71097818/74a4b88f-0b52-4f7a-8c92-03c1a935d12f) 
 
-https://github.com/Ritik-Bhasarkar/Currency-Convertor/assets/71097818/c25ad65c-45b1-4996-bd71-a9c5bc84313f
-
+![Screenshot 2024-03-24 201311](https://github.com/Ritik-Bhasarkar/Currency-Convertor/assets/71097818/db614a9a-a166-425b-99ad-3eccdcf80032)
 
   
 
